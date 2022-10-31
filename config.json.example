@@ -1,0 +1,8 @@
+{
+"dryrun": true,
+"slack" : true,
+"slackurl" : "https://hooks.slack.com/services/....",
+"telegram" : true,
+"telegram_token" : "1234567890:abcdefg",
+"telegram_channel" : "1234567890"
+}
