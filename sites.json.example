@@ -1,4 +1,4 @@
 [
-{"site":"chainlink-arbitrum","user":"user","pass":"pass"},
-{"site":"chainlink-avalanche","user":"user","pass":"pass"}
+{"site":"https://chainlink-arbitrum.url.com","user":"user@domain.com","pass":"pass"},
+{"site":"http://chainlink-avalanche.url.com","user":"user@domain.com","pass":"pass"}
 ]
