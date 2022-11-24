@@ -36,17 +36,23 @@ async function main() {
 			proposals = response.data.data.feedsManagers.results[0].jobProposals
 			for (var b=0; b<proposals.length; b++) {
 				console.log(proposals[b])
-				if (proposals[b].status != "APPROVED" || config.dryrun) {
+				if (proposals[b].status != "APPROVED" && proposals[b].status != "CANCELLED || config.dryrun) {
 					console.log("unapproved change on node " + node)
 					message = message + "unapproved change on node " + node + "\n"
 					todo = true
 				}
+				if (proposals[b].status == "APPROVED" && proposals[b].pendingUpdate || config.dryrun) {
+					console.log("unapproved update on node " + node)
+					message = message + "unapproved update on node " + node + "\n"
+					todo = true
+				}
+			
 			}
 		} catch (e) {}
 		// process.exit()
 	}
 	if (todo) {
-		message = "Unprocessed Jobrequests on Chainlink <@peter> <@andreas>" + "\n" + message
+		message = "Unprocessed Jobrequests on Chainlink" + "\n" + message
 		console.log("MESSAGE:\n" + message)
                 if (config.slack) {
 			await axios.post(config.slackurl, {"text":message})
